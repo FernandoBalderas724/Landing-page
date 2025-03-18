@@ -1,0 +1,413 @@
+/* Hollow Knight Color Scheme */
+:root {
+    /* Main Colors */
+    --primary: #222b3a;        /* Dark blue-gray from Hollow Knight's dark world */
+    --secondary: #516091;      /* Blue-purple from the Soul meter */
+    --accent: #84b5ff;         /* Light blue from dream sequences */
+    --white: #e1e7f2;          /* Pale white from ghost characters */
+    --black: #171b24;          /* Deep blacks from the abyss */
+    --pale-glow: #c6deff;      /* Ethereal pale glow */
+    --infection: #ff9f48;      /* Orange infection color */
+    --shadow: rgba(0, 0, 0, 0.3);
+
+    /* Typography */
+    --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-size-base: 16px;
+    --line-height: 1.6;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height);
+    background-color: var(--primary);
+    color: var(--white);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header Styles */
+header {
+    background-color: var(--black);
+    padding: 2.5rem 0;
+    text-align: center;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+}
+
+header h1 {
+    font-size: 3rem;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px var(--pale-glow);
+}
+
+header p {
+    font-size: 1.2rem;
+    color: var(--accent);
+    opacity: 0.8;
+    margin-bottom: 1rem;
+}
+
+/* Navigation Styles */
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+nav a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--accent);
+    text-shadow: 0 0 8px var(--pale-glow);
+}
+
+nav a.active {
+    background-color: var(--secondary);
+    color: var(--white);
+}
+
+/* Bento Grid Layout */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem 0;
+}
+
+/* Adjust the layout for larger screens */
+@media (min-width: 992px) {
+    .bento-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .about {
+        grid-column: span 2;
+    }
+    
+    .projects {
+        grid-column: span 1;
+    }
+    
+    .contact {
+        grid-column: span 1;
+    }
+}
+
+.bento-item {
+    background-color: var(--black);
+    border-radius: 16px;
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 20px var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bento-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px var(--shadow);
+}
+
+.bento-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    opacity: 0.7;
+}
+
+.bento-item h2 {
+    color: var(--white);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    position: relative;
+}
+
+.bento-item p {
+    color: var(--white);
+    opacity: 0.8;
+}
+
+/* About Section */
+.about {
+    grid-column: span 2;
+}
+
+.about-icon {
+    position: absolute;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    font-size: 3rem;
+    color: var(--secondary);
+    opacity: 0.2;
+}
+
+/* Skills Section */
+.skills ul {
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+}
+
+.skills ul li {
+    color: var(--white);
+    position: relative;
+    padding-left: 1.2rem;
+}
+
+.skills ul li::before {
+    content: '•';
+    color: var(--accent);
+    position: absolute;
+    left: 0;
+}
+
+.skills-icon {
+    position: absolute;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    font-size: 3rem;
+    color: var(--secondary);
+    opacity: 0.2;
+}
+
+/* Projects Section */
+.projects {
+    grid-column: span 2;
+}
+
+.project {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.project:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.project h3 {
+    color: var(--accent);
+    margin-bottom: 0.3rem;
+}
+
+.projects-icon {
+    position: absolute;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    font-size: 3rem;
+    color: var(--secondary);
+    opacity: 0.2;
+}
+
+.view-all-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--accent);
+    text-decoration: none;
+    margin-top: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.view-all-link i {
+    transition: transform 0.3s ease;
+}
+
+.view-all-link:hover {
+    color: var(--pale-glow);
+}
+
+.view-all-link:hover i {
+    transform: translateX(5px);
+}
+
+/* Experience Section */
+.experience {
+    grid-column: span 2;
+}
+
+.job {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.job:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.job h3 {
+    color: var(--accent);
+    margin-bottom: 0.3rem;
+}
+
+.experience-icon {
+    position: absolute;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    font-size: 3rem;
+    color: var(--secondary);
+    opacity: 0.2;
+}
+
+/* Contact Section */
+.contact {
+    grid-column: span 1;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: var(--secondary);
+    color: var(--white);
+    border-radius: 50%;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    background-color: var(--accent);
+    transform: translateY(-3px);
+}
+
+.contact-icon {
+    position: absolute;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    font-size: 3rem;
+    color: var(--secondary);
+    opacity: 0.2;
+}
+
+/* Featured Image */
+.featured-image {
+    grid-column: span 1;
+    min-height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle, var(--primary) 0%, var(--black) 100%);
+}
+
+.image-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hollow-knight {
+    position: relative;
+}
+
+.hollow-knight i {
+    font-size: 5rem;
+    color: var(--white);
+    opacity: 0.7;
+    filter: drop-shadow(0 0 15px var(--pale-glow));
+}
+
+/* Footer */
+footer {
+    background-color: var(--black);
+    padding: 1.5rem 0;
+    text-align: center;
+    margin-top: auto;
+}
+
+footer p {
+    color: var(--white);
+    opacity: 0.6;
+    font-size: 0.9rem;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .bento-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .about,
+    .projects,
+    .experience {
+        grid-column: span 1;
+    }
+    
+    header h1 {
+        font-size: 2.5rem;
+    }
+}
+
+/* Animations */
+@keyframes glow {
+    0% {
+        filter: drop-shadow(0 0 5px var(--pale-glow));
+    }
+    50% {
+        filter: drop-shadow(0 0 20px var(--pale-glow));
+    }
+    100% {
+        filter: drop-shadow(0 0 5px var(--pale-glow));
+    }
+}
+
+.hollow-knight i {
+    animation: glow 3s infinite ease-in-out;
+} 
